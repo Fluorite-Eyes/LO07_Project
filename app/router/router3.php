@@ -4,7 +4,7 @@
 require ('../controller/ControllerProducteur.php');
 require ('../controller/ControllerSpecialite.php');
 require ('../controller/ControllerCave.php');
-require ('../controller/ControllerPatient.php');
+require ('../controller/ControllerAdministrateur.php');
 
 
 // --- récupération de l'action passée dans l'URL
@@ -28,26 +28,15 @@ switch ($action) {
  case "specialiteReadId" :
  case "specialiteCreate" :
  case "specialiteCreated" :
-  ControllerSpecialite::$action($args);
-  break;
- case "producteurReadAll" :
- case "producteurReadOne" :
- case "producteurReadId" :
- case "producteurCreate" :
- case "producteurCreated" :
- case "producteurReadRegion":
- case "producteurGetNum":
-  ControllerProducteur::$action($args);
-  break;
  case "patientReadAll":
-  ControllerPatient::$action();
-  break;
+ case "patientGetNumBarPraticien":
+ case "administrateurInfo":
+     
+  ControllerAdministrateur::$action($args);
+
  case "myPropositions":
   ControllerCave::$action($args);
   break;
-
-
-
  // Tache par d茅faut
  default:
   $action = "caveAccueil";

@@ -12,6 +12,8 @@ require ($root . '/app/view/fragment/fragmentCaveHeader.html');
       include $root . '/app/view/fragment/fragmentCaveJumbotron.html';
       ?>
 
+      <h3><font color="red">Liste des praticien</font></h3>     
+      
     <table class = "table table-striped table-bordered">
       <thead>
         <tr>

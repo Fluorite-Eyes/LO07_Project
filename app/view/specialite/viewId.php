@@ -13,6 +13,8 @@ require ($root . '/app/view/fragment/fragmentCaveHeader.html');
       // $results contient un tableau avec la liste des clés.
       ?>
 
+<h3><font color="red">Liste des spécialité</font></h3>  
+      
     <form role="form" method='get' action='router3.php'>
       <div class="form-group">
         <input type="hidden" name='action' value='specialiteReadOne'>

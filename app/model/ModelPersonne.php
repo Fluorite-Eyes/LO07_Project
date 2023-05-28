@@ -87,7 +87,7 @@ class ModelPersonne {
  public static function getPatientId() {
   try {
    $database = Model::getInstance();
-   $query = "select id from personne where statut = 2";
+   $query = "select id from personne where statut = 1";
    $statement = $database->prepare($query);
    $statement->execute();
    $results = $statement->fetchAll(PDO::FETCH_COLUMN, 0);
@@ -99,10 +99,25 @@ class ModelPersonne {
  }
 
  
+   public static function getAllPraticien() {
+  try {
+   $database = Model::getInstance();
+   $query = " SELECT personne.id, personne.nom, personne.prenom, personne.adresse, specialite.label from personne join specialite on personne.specialite_id = specialite.id where personne.statut = 1;";
+   $results = $database->query($query);
+   $options = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
+   $stmt = $database->prepare($query);
+   $stmt->execute();
+   return $stmt;
+  } catch (PDOException $e) {
+   printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
+   return NULL;
+  }
+ }
+ 
    public static function getAllPatient() {
   try {
    $database = Model::getInstance();
-   $query = " SELECT personne.id, personne.nom, personne.prenom, personne.adresse, specialite.label from personne join specialite on personne.specialite_id = specialite.id where personne.statut = 2 ;";
+   $query = " SELECT personne.id, personne.nom, personne.prenom, personne.adresse, specialite.label from personne join specialite on personne.specialite_id = specialite.id where personne.statut = 2;";
    $results = $database->query($query);
    $options = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
    $stmt = $database->prepare($query);
@@ -114,10 +129,10 @@ class ModelPersonne {
   }
  }
  
-    public static function getNomDePatient() {
+    public static function getAllAdministrateur() {
   try {
    $database = Model::getInstance();
-   $query = " SELECT patient_id, COUNT(*) AS num FROM rendezvous GROUP BY praticien_id;";
+   $query = " SELECT personne.id, personne.nom, personne.prenom, personne.adresse, specialite.label from personne join specialite on personne.specialite_id = specialite.id where personne.statut = 0;";
    $results = $database->query($query);
    $options = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
    $stmt = $database->prepare($query);
@@ -128,8 +143,7 @@ class ModelPersonne {
    return NULL;
   }
  }
- 
- 
+  
   public static function getNum() {
   try {
    $database = Model::getInstance();
