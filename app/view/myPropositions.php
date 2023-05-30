@@ -2,7 +2,7 @@
 <body>
   <div class="container">
     <?php
-    include 'fragment/fragmentCaveMenu.html';
+    include 'fragment/fragmentMenu.php';
     ?>
       <div class="mt-4 p-5 bg-success text-white rounded">
   <h1>Une idée géniale </h1>

@@ -73,6 +73,20 @@ class ModelSpecialite {
    return NULL;
   }
  }
+ 
+  public static function getAllSpecialite() {
+  try {
+   $database = Model::getInstance();
+   $query = "select label from specialite";
+   $statement = $database->prepare($query);
+   $statement->execute();
+   $results = $statement->fetchAll(PDO::FETCH_COLUMN, 0);
+   return $results;
+  } catch (PDOException $e) {
+   printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
+   return NULL;
+  }
+ }
 
  public static function getOne($id) {
   try {

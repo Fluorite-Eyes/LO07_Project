@@ -1,11 +1,26 @@
 
 <!-- ----- début fragmentCaveMenu -->
+<?php
+
+if ($_SESSION['login'] != "vide") {
+    $nom = $_SESSION['nom'];
+    $prenom = $_SESSION['prenom'];
+    $statut = $_SESSION['statut'];
+}
+
+?>
 
 <nav class="navbar navbar-expand-lg bg-success fixed-top">
   <div class="container-fluid">
-      <a class="navbar-brand" href="router3.php?action=CaveAccueil">DUPONT-DURANT | | Paul GAILLARD |</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      
+      <?php
+      if ($_SESSION['login'] == 'vide') {
+      echo '<a class="navbar-brand" href="router3.php?action=CaveAccueil">DUPONT-DURANT |||</a>';
+      }
+      ?>
+      
+      <a class="navbar-brand" href="router3.php?action=CaveAccueil">DUPONT-DURANT |  | Paul GAILLARD |</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">

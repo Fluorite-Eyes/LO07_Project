@@ -1,10 +1,11 @@
 
-<!-- ----- debut Router1 -->
+<!-- ----- debut Router3 -->
 <?php
 require ('../controller/ControllerProducteur.php');
 require ('../controller/ControllerSpecialite.php');
 require ('../controller/ControllerCave.php');
 require ('../controller/ControllerAdministrateur.php');
+require ('../controller/ControllerLog.php');
 
 
 // --- récupération de l'action passée dans l'URL
@@ -30,14 +31,20 @@ switch ($action) {
  case "specialiteCreated" :
  case "patientReadAll":
  case "patientGetNumBarPraticien":
- case "administrateurInfo":
-     
+ case "administrateurInfo":    
   ControllerAdministrateur::$action($args);
-
+     break;
+ case "logCreate" :
+ case "logCreated" :
+ case "logLogin" :
+ case "verifyLogin" :
+ case "logout" :
+  ControllerLog::$action();
+     break;
+ // Tache par d茅faut
  case "myPropositions":
   ControllerCave::$action($args);
-  break;
- // Tache par d茅faut
+     break;break;
  default:
   $action = "caveAccueil";
   Controllerspecialite::$action();
@@ -47,5 +54,5 @@ switch ($action) {
 
 
 ?>
-<!-- ----- Fin Router1 -->
+<!-- ----- Fin Router3 -->
 

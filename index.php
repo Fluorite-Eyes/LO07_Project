@@ -1,6 +1,8 @@
 <?php
 
-header('Location: app/router/router1.php?action=truc');
+session_start();
+$_SESSION['login'] = "vide";
+header('Location: app/router/router3.php?action=truc');
 
 ?>
 
