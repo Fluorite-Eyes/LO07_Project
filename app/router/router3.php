@@ -2,8 +2,7 @@
 <!-- ----- debut Router3 -->
 <?php
 require ('../controller/ControllerProducteur.php');
-require ('../controller/ControllerSpecialite.php');
-require ('../controller/ControllerCave.php');
+require ('../controller/ControllerDoctolib.php');
 require ('../controller/ControllerAdministrateur.php');
 require ('../controller/ControllerLog.php');
 
@@ -20,8 +19,7 @@ $action = htmlspecialchars($param["action"]);
 
 // --- Liste des méthodes autorisées
 
-
-
+$args = null;
 
 switch ($action) {
  case "specialiteReadAll" :
@@ -35,19 +33,16 @@ switch ($action) {
   ControllerAdministrateur::$action($args);
      break;
  case "logCreate" :
- case "logCreated" :
+ case "logRegister" :
  case "logLogin" :
+ case "logLoginError" :
  case "verifyLogin" :
  case "logout" :
   ControllerLog::$action();
      break;
- // Tache par d茅faut
- case "myPropositions":
-  ControllerCave::$action($args);
-     break;break;
  default:
-  $action = "caveAccueil";
-  Controllerspecialite::$action();
+  $action = "doctolibAccueil";
+  ControllerDoctolib::$action();
 }
 
 

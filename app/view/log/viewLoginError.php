@@ -11,7 +11,13 @@ include $root . '/app/view/fragment/fragmentBody.html';
 <br></br>
 <h1 class="heading">Connexion</h1>
 <br></br>
+<div class="alert alert-error position-absolute top-10 start-50 translate-middle">
 
+    <i class="fa fa-exclamation-triangle"style = "color:red"></i>
+    <span class="kc-feedback-text"style = "color:red">Nom d’utilisateur ou mot de passe invalide, Veuillez entrer le mot de passe correct du compte."</span>
+
+</div>
+<br></br>
     <form method='get' action='router3.php'>
         
         <input type="hidden" name='action' value='verifyLogin'>        

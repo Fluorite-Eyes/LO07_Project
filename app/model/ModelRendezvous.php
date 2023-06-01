@@ -53,7 +53,7 @@ class ModelRendezvous {
     public static function getNomDePatient() {
   try {
    $database = Model::getInstance();
-   $query = " SELECT patient_id, COUNT(*) AS num FROM rendezvous GROUP BY patient_id;";
+   $query = " SELECT personne.nom, personne.prenom, rendezvous.patient_id, COUNT(*) AS num FROM personne JOIN rendezvous ON personne.id = rendezvous.patient_id GROUP BY patient_id;";
    $results = $database->query($query);
    $options = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
    $stmt = $database->prepare($query);

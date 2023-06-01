@@ -2,18 +2,18 @@
 <!-- ----- début viewAll -->
 <?php
 
-require ($root . '/app/view/fragment/fragmentCaveHeader.html');
+require ($root . '/app/view/fragment/fragmentHeader.html');
 ?>
 
-<body>
-  <div class="container">
-      <?php
-      include $root . '/app/view/fragment/fragmentCaveMenu.html';
-      include $root . '/app/view/fragment/fragmentCaveJumbotron.html';
-      ?>
+<?php
+include $root . '/app/view/fragment/fragmentMenu.php';
+include $root . '/app/view/fragment/fragmentBody.html';
+?>
+<br></br>
+<br></br>
+<h1 class="heading">Liste des spécialité</h1>
+<br></br>
 
-<h3><font color="red">Liste des spécialité</font></h3>      
-      
     <table class = "table table-striped table-bordered">
       <thead>
         <tr>
@@ -31,9 +31,10 @@ require ($root . '/app/view/fragment/fragmentCaveHeader.html');
           ?>
       </tbody>
     </table>
-  </div>
+
+<br></br>
     
-  <?php include $root . '/app/view/fragment/fragmentCaveFooter.html'; ?>
+  <?php include $root . '/app/view/fragment/fragmentFooter.html'; ?>
 
   <!-- ----- fin viewAll -->
   

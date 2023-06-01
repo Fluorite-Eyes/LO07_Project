@@ -2,17 +2,17 @@
 <!-- ----- début viewAll -->
 <?php
 
-require ($root . '/app/view/fragment/fragmentCaveHeader.html');
+require ($root . '/app/view/fragment/fragmentHeader.html');
 ?>
 
-<body>
-  <div class="container">
-      <?php
-      include $root . '/app/view/fragment/fragmentCaveMenu.html';
-      include $root . '/app/view/fragment/fragmentCaveJumbotron.html';
-      ?>
-
-      <h3><font color="red">Liste des praticien</font></h3>     
+<?php
+include $root . '/app/view/fragment/fragmentMenu.php';
+include $root . '/app/view/fragment/fragmentBody.html';
+?>
+<br></br>
+<br></br>
+<h1 class="heading">Liste des praticien</h1>
+<br></br>
       
     <table class = "table table-striped table-bordered">
       <thead>
@@ -36,7 +36,7 @@ require ($root . '/app/view/fragment/fragmentCaveHeader.html');
       </tbody>
     </table>
   </div>
-  <?php include $root . '/app/view/fragment/fragmentCaveFooter.html'; ?>
+  <?php include $root . '/app/view/fragment/fragmentFooter.html'; ?>
 
   <!-- ----- fin viewAll -->
   

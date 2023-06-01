@@ -93,7 +93,6 @@ class ControllerAdministrateur {
   require ($vue);
  } 
 
-
  // Affiche un patient particulier (id)
  public static function patientReadOne() {
   $patient_id = $_GET['id'];
@@ -145,7 +144,7 @@ class ControllerAdministrateur {
 
   // ----- Construction chemin de la vue
   $target = $args['target'];
-  if (DEBUG) echo ("ControllerSpecialite:SpecialiteReadId : target = $target</br>");
+
   include 'config.php';
   $vue = $root . '/app/view/specialite/viewId.php';
   require ($vue);
@@ -182,6 +181,8 @@ class ControllerAdministrateur {
   $vue = $root . '/app/view/specialite/viewInserted.php';
   require ($vue);
  }
+ 
+ 
  
  
 }

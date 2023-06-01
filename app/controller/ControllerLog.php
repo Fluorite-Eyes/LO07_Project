@@ -23,12 +23,12 @@ class ControllerLog {
   $options = ModelSpecialite::getAllSpecialite();
   // ----- Construction chemin de la vue
   include 'config.php';
-  $vue = $root . '/app/view/log/viewLog.php';
+  $vue = $root . '/app/view/log/viewRegister.php';
   require ($vue);
  }
 
  // Affiche un formulaire pour récupérer les informations d'un nouveau producteur.
- public static function logCreated() {
+ public static function logRegister() {
   // ajouter une validation des informations du formulaire
   $results = ModelPersonne::insert(
       htmlspecialchars($_GET['nom']), htmlspecialchars($_GET['prenom']), htmlspecialchars($_GET['adresse']), htmlspecialchars($_GET['login']), htmlspecialchars($_GET['password']), htmlspecialchars($_GET['statut']), htmlspecialchars($_GET['specialite_id'])
@@ -46,6 +46,14 @@ class ControllerLog {
   $vue = $root . '/app/view/log/viewLogin.php';
   require ($vue);
  }
+ 
+   public static function logLoginError() {
+
+  include 'config.php';
+  $vue = $root . '/app/view/log/viewLoginError.php';
+  require ($vue);
+ }
+ 
 
  // Login Verify
  public static function verifyLogin() {
@@ -54,15 +62,16 @@ class ControllerLog {
      $password = $_GET['password'];
      $results = ModelLogin::logLogin($login, $password);
      	if($results){
-		echo "<script>alert('success');</script>";
-                $_SESSION['login'] = $login; // session
+		
+        $_SESSION['login'] = $login; // session
         $_SESSION['nom'] = $results['nom'];
         $_SESSION['prenom'] = $results['prenom'];
         $_SESSION['statut'] = $results['statut'];
        
-        header("Refresh:0.1;url=router3.php?action=caveAccueil");
+        header("Refresh:0.1;url=router3.php?action=action=truc");
 	} else{
-		echo "<script>alert('fail, no login exist');</script>";
+		
+                header("Refresh:0.1;url=router3.php?action=logLoginError");
 	}
  }
  
@@ -73,7 +82,6 @@ session_start();
 unset($_SESSION['login']);
 // Finally, destroy the session.    
 session_destroy();
-echo "<script>alert('Logout seccessfully!');</script>";
 // Include URL for Login page to login again.
 session_start();
 $_SESSION['login'] = "vide";
